@@ -1,3 +1,4 @@
+# snakefile for collecting the outputs of the second subworkflow
 configfile: "config.yaml"
 import os
 import pandas as pd
