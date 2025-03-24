@@ -5,4 +5,7 @@ Requirements: As described in the Star Protocol
 - Hardware minimum: 32 GB RAM and 1.5 TB storage
 - Human-DNA reference sequence in fasta format, download here (https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/) and rename it to "human_reference_sequence.fasta"
 - checkm database, download here: https://data.ace.uq.edu.au/public/CheckM_databases/, and run
-``\ncheckm data setRoot <checkm_data_dir> ``
+``checkm data setRoot <checkm_data_dir> ``, fill in the path to your directory where the checkm database is stored
+- gtdbtk-database, first install gtdbtk with conda, then run ``download-db.sh`` to install the database (320 GB and patience required)
+- metaquast package for assembly statistics, download as described here: https://quast.sourceforge.net/install.html
+
