@@ -16,3 +16,12 @@ rule all:
         expand(os.path.join(config["general"]["output_dir"], "gtdb_result_{sample}"), sample=SAMPLES),
         os.path.join(config["general"]["data"], "bins/bin_datatable.csv"),
         expand(os.path.join(config["general"]["data"], "bins/dereplicated_{sample}"), sample=SAMPLES),
+        
+
+
+
+include: "rules/Snakefile_prot_1.smk"
+include: "rules/Snakefile_prot_2_1.smk"
+include: "rules/Snakefile_prot_2_2.smk"
+include: "rules/Snakefile_prot_3_1.smk"
+include: "rules/Snakefile_prot_3_2.smk"
