@@ -9,7 +9,7 @@ Execution:
 
 Requirements:
 - Minimum hardware: 32 GB RAM and 1.5 TB disk space
-- **Human-DNA reference sequence** in fasta format, download here (https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/) and rename it to "human_reference_sequence.fasta" and store it in data/host_dna_removal
+- **Human-DNA reference sequence** in fasta format, download here (https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/), rename it to "human_reference_sequence.fasta" and store it in data/host_dna_removal
 - **CheckM database**, download here: https://data.ace.uq.edu.au/public/CheckM_databases/, and run
 ``checkm data setRoot <checkm_data_dir> ``, fill in the path to your directory where the checkm database is stored
 - **gtdbtk-database**, first install gtdbtk with conda, then run ``download-db.sh`` to install the database (320 GB and patience required)
