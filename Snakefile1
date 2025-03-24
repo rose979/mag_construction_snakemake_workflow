@@ -1,0 +1,18 @@
+# Snakefile, that collects outputs from all rules
+import os
+configfile: "config.yaml"
+SAMPLES = config["wildcards"]["sample"]
+READS = config["wildcards"]["read"]
+wildcard_constraints:
+    bin_nr= "\d+"
+
+
+
+rule all:
+    input:
+        expand(os.path.join(config["general"]["output_dir"], "fastqc/{sample}_{read}_fastqc{ext}"),sample=SAMPLES, read=READS, ext=[".zip", ".html"]),        
+        expand(os.path.join(config["general"]["data"], "human_index/reference_sequence.fasta.index.{ext}"), ext=["1.bt2", "2.bt2", "3.bt2", "4.bt2", "rev.1.bt2", "rev.2.bt2"]),
+        expand(os.path.join(config["general"]["output_dir"], "assembly_statistics/metaspades/metaspades_{sample}"), sample=SAMPLES),
+        expand(os.path.join(config["general"]["output_dir"], "gtdb_result_{sample}"), sample=SAMPLES),
+        os.path.join(config["general"]["data"], "bins/bin_datatable.csv"),
+        expand(os.path.join(config["general"]["data"], "bins/dereplicated_{sample}"), sample=SAMPLES),
