@@ -5,4 +5,4 @@ Requirements: As described in the Star Protocol
 - Hardware minimum: 32 GB RAM and 1.5 TB storage
 - Human-DNA reference sequence in fasta format, download here (https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/) and rename it to "human_reference_sequence.fasta"
 - checkm database, download here: https://data.ace.uq.edu.au/public/CheckM_databases/, and run
-``checkm data setRoot <checkm_data_dir> ``
+``\ncheckm data setRoot <checkm_data_dir> ``
