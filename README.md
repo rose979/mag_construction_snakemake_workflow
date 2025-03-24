@@ -9,3 +9,9 @@ Requirements:
 - **gtdbtk-database**, first install gtdbtk with conda, then run ``download-db.sh`` to install the database (320 GB and patience required)
 - **metaquast** package for assembly statistics, download as described here: https://quast.sourceforge.net/install.html
 
+Execution:
+- The workflow can be executed on multiple samples, to ensure that all works correctly, please insert your sample names in the config.yaml file in the section: "wildcards"
+- The input files must be in paired-end format, following the pattern: "{samplename}_{1/2}.fastq"
+- If you provide more than two samples, please update Snakefile2 with the following codeline in the beginning: ``BIN_NR_sample2 = ast.literal_eval(bin_dict["bin_numbers"][config["wildcards"]["sample"][{sample_3}]])``, for every additional sample, that is provided, add another line with the number of the sample in inserted in the curly braces.
+-  
+
