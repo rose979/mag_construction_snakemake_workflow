@@ -1,0 +1,24 @@
+configfile: "config.yaml"
+import os
+import pandas as pd
+import ast
+df = pd.read_csv(os.path.join(config["general"]["data"],"bins/bin_datatable.csv"), index_col=0)
+bin_dict = df.to_dict()
+BIN_NR_sample1 = ast.literal_eval(bin_dict["bin_numbers"][config["wildcards"]["sample"][0]])
+BIN_NR_sample2 = ast.literal_eval(bin_dict["bin_numbers"][config["wildcards"]["sample"][1]])   
+SAMPLES = config["wildcards"]["sample"]
+wildcards = config["wildcards"]
+
+
+rule all:
+    input:
+        expand(os.path.join(config["general"]["output_dir"], "mag_annotation_SRR12324251_{bin_nr}"), bin_nr=BIN_NR_sample1),
+        expand(os.path.join(config["general"]["output_dir"], "mag_annotation_SRR23604272_{bin_nr}"), bin_nr=BIN_NR_sample2),
+        expand(os.path.join(config["general"]["data"], "Samtools_SRR12324251/bin_{bin_nr}.bam"),bin_nr=BIN_NR_sample1),
+        expand(os.path.join(config["general"]["data"], "Samtools_SRR23604272/bin_{bin_nr}.bam"),bin_nr=BIN_NR_sample2),
+        expand(os.path.join(config["general"]["data"], "Samtools_SRR12324251/bin_{bin_nr}.sorted.bam"), bin_nr=BIN_NR_sample1),
+        expand(os.path.join(config["general"]["data"], "Samtools_SRR23604272/bin_{bin_nr}.sorted.bam"), bin_nr=BIN_NR_sample2),
+        
+        
+include: "rules/Snakefile_prot_4_1.smk"
+include: "rules/Snakefile_prot_4_2.smk"
