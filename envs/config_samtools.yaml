@@ -1,6 +1,7 @@
 channels:
-  - bioconda
   - conda-forge
+  - bioconda
   - defaults
+
 dependencies:
-  - binette = 1.0.5
+  - samtools = 1.21
